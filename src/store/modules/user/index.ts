@@ -5,10 +5,12 @@ export default defineStore('user', () => {
 
   const isInitUserInfo = ref(false) // 是否初始化用户信息
 
+  const roles = ref<string[]>(['admin'])
+
   async function initUserInfo() {
     loggedIn.value = true
     isInitUserInfo.value = true
   }
 
-  return { loggedIn, isInitUserInfo, initUserInfo }
+  return { loggedIn, isInitUserInfo, initUserInfo, roles }
 })

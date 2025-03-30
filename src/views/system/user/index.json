@@ -1,6 +1,7 @@
 {
   "meta": {
     "title": "用户管理",
-    "requiresAuth": false
+    "requiresAuth": true,
+    "roles": ["admin"]
   }
 }

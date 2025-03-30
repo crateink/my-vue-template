@@ -23,8 +23,6 @@ export default function setupUserInfoGuard(router: Router) {
         }
       }
     } else {
-      console.log(to)
-
       if (to.name === 'Login') {
         next()
         return

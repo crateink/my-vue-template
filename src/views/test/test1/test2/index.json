@@ -1,5 +1,5 @@
 {
   "meta": {
-    "requiresAuth": false
+    "requiresAuth": true
   }
 }

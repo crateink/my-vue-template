@@ -1,5 +1,5 @@
 <template>
-  <div>system/user <input type="text" /></div>
+  <div v-permission="['admin']">system/user <input type="text" /></div>
 </template>
 
 <script setup lang="ts"></script>

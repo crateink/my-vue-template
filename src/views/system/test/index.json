@@ -1,6 +1,7 @@
 {
   "meta": {
     "title": "测试",
-    "requiresAuth": false
+    "requiresAuth": true,
+    "roles": ["admin"]
   }
 }
