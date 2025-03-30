@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "用户管理",
+    "requiresAuth": false
+  }
+}
