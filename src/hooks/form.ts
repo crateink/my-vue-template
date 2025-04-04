@@ -10,31 +10,26 @@ interface HttpResponse<T = unknown> {
 }
 
 export default function useForm<T>(
-  api: () => Promise<AxiosResponse<HttpResponse>>,
-  { initData = [] as T, initPage = 1, initPageSize = 10, initTotal = 0 } = {},
+  api: (arg: unknown) => Promise<AxiosResponse<HttpResponse>>,
+  { initFormData = [] as T } = {},
 ) {
-  const { loading, setLoading } = useLoading(true)
-  const list = ref<T>(initData)
-  const page = ref(initPage)
-  const pageSize = ref(initPageSize)
-  const total = ref(initTotal)
+  const { loading, setLoading } = useLoading(false)
+  const formData = ref(initFormData)
 
-  api()
-    .then((res) => {
-      page.value = res.data.page || initPage
-      pageSize.value = res.data.pageSize || initPageSize
-      total.value = res.data.total || initTotal
-      list.value = res.data.list || initData
-    })
-    .finally(() => {
-      setLoading(false)
-    })
+  const handleSubmit = () => {
+    setLoading(true)
+    api(formData.value)
+      .then((res) => {
+        console.log(res)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
 
   return {
     loading,
-    list,
-    page,
-    pageSize,
-    total,
+    formData,
+    handleSubmit,
   }
 }

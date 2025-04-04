@@ -77,6 +77,12 @@
     "watchSyncEffect": true,
     "store": true,
     "useAppStore": true,
-    "useUserStore": true
+    "useUserStore": true,
+    "form": true,
+    "loading": true,
+    "pagination": true,
+    "permission": true,
+    "request": true,
+    "useDialog": true
   }
 }

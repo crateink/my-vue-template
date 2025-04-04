@@ -32,7 +32,7 @@ export default defineConfig({
       eslintrc: {
         enabled: true, // 是否启用 eslint 配置
       },
-      dirs: ['src/store'],
+      dirs: ['src/store', 'src/hooks'],
     }),
     Components({
       resolvers: [ElementPlusResolver()], // 自动导入 element-plus 组件

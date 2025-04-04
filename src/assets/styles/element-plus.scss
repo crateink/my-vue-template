@@ -1,0 +1,107 @@
+.el-dialog {
+  margin: 5vh auto;
+  padding: 0;
+  .el-dialog__header {
+    height: 54px;
+    border-bottom: 1px solid var(--el-border-color);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    .el-dialog__headerbtn {
+      width: 54px;
+      height: 54px;
+      right: 20px;
+      .el-icon {
+        color: var(--el-color-info);
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        font-size: 20px;
+      }
+      &:hover {
+        .el-icon {
+          color: var(--el-color-primary);
+        }
+      }
+      &.fullscreen {
+        right: 74px;
+      }
+    }
+  }
+  .el-dialog__body {
+    padding: 30px !important;
+    max-height: calc(90vh - 54px);
+    overflow: auto;
+  }
+  .el-dialog__footer {
+    border-top: 1px solid var(--el-border-color);
+    padding: 0 30px !important;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:has(.el-dialog__footer) {
+    .el-dialog__body {
+      max-height: calc(90vh - 108px);
+    }
+  }
+
+  &.is-fullscreen {
+    .el-dialog__body {
+      max-height: calc(100vh - 54px);
+    }
+    &:has(.el-dialog__footer) {
+      .el-dialog__body {
+        max-height: calc(100vh - 108px);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .el-dialog {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+
+    .el-dialog__header {
+      .el-dialog__headerbtn.fullscreen {
+        display: none;
+      }
+    }
+
+    .el-dialog__body {
+      max-height: calc(100vh - 54px);
+      height: calc(100vh - 54px);
+    }
+    &:has(.el-dialog__footer) {
+      .el-dialog__body {
+        max-height: calc(100vh - 108px);
+        height: calc(100vh - 108px);
+      }
+    }
+  }
+}
+
+.preview-dialog {
+  .el-dialog.is-fullscreen {
+    border-radius: 0 !important;
+  }
+  .el-dialog__header {
+    display: none;
+  }
+  .el-dialog__body {
+    padding: 0 !important;
+    height: 100vh;
+    max-height: 100vh !important;
+    overflow: hidden;
+  }
+}

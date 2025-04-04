@@ -55,9 +55,12 @@ const formRef = useTemplateRef('formRef')
 const router = useRouter()
 const handleSubmit = async () => {
   try {
-    await formRef.value!.validate()
     submitLoading.value = true
-  } catch (error) {}
+    await formRef.value!.validate()
+    router.push('/')
+  } finally {
+    submitLoading.value = false
+  }
 }
 </script>
 

@@ -1,11 +1,27 @@
 <template>
-  <link rel="stylesheet" href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" />
   <div>test2 <input type="text" /></div>
-  <div class="text">
-    <span>好</span>
-  </div>
+  <el-button type="primary" @click="openDialog">openDialog</el-button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="tsx">
+const a = ref(1)
+const dialog = useDialog()
+const openDialog = () => {
+  dialog.open({
+    dialogProps: {
+      title: 'test2',
+      width: '300',
+    },
+    comp: () => (
+      <div>
+        <h1>close</h1>
+        <el-button type="primary" onClick={() => dialog.close()}>
+          close
+        </el-button>
+      </div>
+    ),
+  } as any)
+}
+</script>
 
 <style scoped lang="scss"></style>
